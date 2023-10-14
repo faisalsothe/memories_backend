@@ -20,10 +20,8 @@ app.use(express.json());
 app.use("/posts",postRoutes);
 app.use("/users",userRoutes);
 
-
-
 const CONNECTION_URL=process.env.CONNECTION_URL;
-const PORT=process.env.PORT;
+const PORT=process.env.PORT || 8000;
 
 mongoose.connect(CONNECTION_URL,{useNewUrlParser:true,useUnifiedTopology:true})
 .then(()=>app.listen(PORT,()=>console.log(`Server Running on Port: ${PORT}`)))
